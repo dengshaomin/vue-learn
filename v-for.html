@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./libs/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3 type="text" style="margin-top: 20px;background-color: skyblue;">遍历list,item</h3>
+        <p v-for="item in list">{{item}}</p>
+        <h3 type="text" style="margin-top: 20px;background-color: skyblue;">遍历list,item、index</h3>
+        <p v-for="(item,index) in list">{{item}} &nbsp&nbsp&nbsp&nbsp {{index}}</p>
+        <h3 type="text" style="margin-top: 20px;background-color: skyblue;">遍历list</h3>
+        <p v-for="item in users">{{item.id}}&nbsp{{item.name}}&nbsp{{item.score}}</p>
+        <h3 type="text" style="margin-top: 20px;background-color: skyblue;">遍历对象,object</h3>
+        <p v-for="(val,key,index) in user">{{val}}&nbsp{{key}}&nbsp{{index}}</p>
+        <h3 type="text" style="margin-top: 20px;background-color: skyblue;">遍历对象，数字</h3>
+        <p v-for="count in 10">{{count}}</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: [0, 1,],
+                users: [
+                    { id: 0, name: 'nothing', score: 99 },
+                    { id: 1, name: 'code', score: 88 }
+                ],
+                user: {
+                    id: 0, name: 'nothing', score: 99
+                }
+            },
+            methods: {}
+        })
+    </script>
+</body>
+
+</html>

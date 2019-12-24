@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./libs/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="start" @click='start'>
+        <input type="button" value="end" @click='end'>
+        <h4>{{text}}</h4>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                text: '猥琐发育，别浪~~',
+                intervalId: null
+            },
+            methods: {
+                start () {
+                    if (this.intervalId == null)
+                        this.intervalId = setInterval(() => {
+                            var fist = this.text.substring(0, 1)
+                            var end = this.text.substring(1)
+                            this.text = end + fist
+                        }, 400);
+                }, end () {
+                    if (this.intervalId != null) {
+                        clearInterval(this.intervalId)
+                        this.intervalId = null
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./libs/vue.js"></script>
+    <style>
+        .bg {
+            background-color: red;
+        }
+
+        .bd {
+            border-width: 5px;
+            border-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" style="background-color: red;border-width: 5px;border-color: skyblue;" value="样式设置">
+        <input type="button" :style="styleobj" value="样式设置">
+        <input type="button" class="bg bd" value="样式设置">
+        <input type="button" :class="['bg','bd']" value="样式设置">
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                styleobj:{'background-color': 'red' ,'border-width': '5px','border-color': 'skyblue'}
+            },
+            methods: {
+                
+            }
+        })
+    </script>
+</body>
+
+</html>
