@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./libs/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model='addid'>
+        <input type="text" v-model='addname'>
+        <input type="button" value="add" @click="add">
+        <p v-for="item in list" :key="item.id" style="background-color: slateblue;">
+            <input type="checkbox">
+            {{item.id}}--{{item.name}}
+        </p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                addid:0,
+                addname:"fuck",
+                list: [
+                    { id: 0, name: "hanxin" }, { id: 1, name: "zhaoyun" }, { id: 2, name: "guanyu" }
+                ]
+            },
+            methods: {
+                add(){
+                    var exist= false
+                    var that = this
+                    for(item of this.list){
+                        // console.error(item)
+                        if(item.id == this.addid){
+                            item.name = this.addname
+                            exist = true
+                            break
+                        }
+                    }
+                    if(!exist)
+                    this.list.unshift({id:this.addid,name:this.addname})
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

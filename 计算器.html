@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="./libs/vue.js"></script>
-    
+
 </head>
 
 <body>
     <div id="app">
-        <input  type="text" v-model="v1" @change="opreratorchanged">
-        <select  v-model='prerator' @change="opreratorchanged">
+        <input type="text" v-model="v1" @change="opreratorchanged">
+        <select v-model='prerator' @change="opreratorchanged">
             <option value="+">+</option>
             <option value="-">-</option>
             <option value="*">*</option>
@@ -27,13 +27,13 @@
         var vm = new Vue({
             el: '#app',
             data: {
-                v1:0,
-                prerator:'+',
-                v2:0,
-                result:0
+                v1: 0,
+                prerator: '+',
+                v2: 0,
+                result: 0
             },
             methods: {
-                opreratorchanged(){
+                opreratorchanged() {
                     this.result = eval('parseInt(this.v1)' + this.prerator + 'parseInt(this.v2)')
                 }
             }
